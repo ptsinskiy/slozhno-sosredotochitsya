@@ -2,7 +2,6 @@
 
 .page {
   margin: 0 auto;
-  padding: 10px;
   color: var(--text-color);
   font-family: var(--main-font), sans-serif;
   font-size: 18px;
@@ -10,13 +9,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
-  background-attachment: fixed;  
-}
-
-@media (min-width: 768px) {
-  .page {
-    padding: 20px;
-  }
+  background-attachment: fixed;
 }
 
 .accent-shadow-text {
@@ -32,7 +25,7 @@
 @media (min-width: 1024px) {
   .accent-shadow-text {
     font-size: var(--accent-shadow-text-desktop);
-    margin: 45px 0 0 0px;
+    margin: 65px 0 0 0px;
   }
 }
 
