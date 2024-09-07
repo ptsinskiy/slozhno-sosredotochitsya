@@ -2,3 +2,21 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+
+:root {
+	--title-color: #db00ff;
+	--accent-color: #ff0070;
+	--border-button-color: rgba(255, 0, 112, 0.4);
+	--additional-color: #ff0070;
+	--text-color: #f1b2ce;
+	--tertiary-title-color: #000028;
+	--section-offset: 80px;
+	--bcg-image: url(./../images/cover-image-dark.png);
+	--bcg-color: #000028;
+}
+
+@media (width <= 700px) {
+	:root {
+		--section-offset: 50px;
+	}
+}

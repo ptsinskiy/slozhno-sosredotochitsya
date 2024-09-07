@@ -1,5 +1,369 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+	background-image: var(--bcg-image);
+	background-color: var(--bcg-color);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+.link {
+	text-decoration: none;
+	text-shadow: 2px 2px var(--accent-color);
+	border: 1px solid transparent;
+}
+
+.link:hover {
+	border-bottom: 1px solid var(--text-color);
+}
+
+.link:focus-visible {
+	outline: none;
+	border: 1px solid var(--text-color);
+}
+
+.title {
+	font-weight: 700;
+	font-size: clamp(7.5rem, 0.2213rem + 20.2186vw, 9.8125rem);
+	line-height: 129.53px;
+	color: var(--title-color);
+	text-shadow: 4px 4px var(--accent-color);
+}
+
+.secondary-title {
+	margin-bottom: 20px;
+	max-width: 315px;
+	width: 100%;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 23.4px;
+	color: var(--additional-color);
+}
+
+.tertiary-title {
+	margin-bottom: 10px;
+	background-color: var(--accent-color);
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 23.4px;
+	color: var(--tertiary-title-color);
+}
+
+.section {
+	margin-top: var(--section-offset);
+}
+
+.grid-list {
+	display: grid;
+	grid-template-columns: 315px 1fr;
+	gap: 20px;
+}
+
+.rec {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: var(--accent-color);
+	text-transform: uppercase;
+	user-select: none;
+}
+
+.rec::after {
+	content: '';
+	width: 9px;
+	height: 9px;
+	background-color: var(--accent-color);
+	box-shadow: 0 0 4px 2px var(--accent-color);
+	border-radius: 50%;
+}
+
+.decorated-zone::before {
+	content: '';
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 25px;
+	height: 25px;
+	border-top: 1px solid var(--additional-color);
+	border-right: 1px solid var(--additional-color);
+}
+
+.decorated-zone::after {
+	content: '';
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	width: 25px;
+	height: 25px;
+	border-left: 1px solid var(--additional-color);
+	border-bottom: 1px solid var(--additional-color);
+}
+
+.header {
+	padding: 20px 0;
+	position: relative;
+	height: 100vh;
+	min-height: 668px;
+	display: grid;
+	align-items: center;
+	grid-template-rows: 1fr min-content 1fr;
+}
+
+.header__theme-menu {
+	justify-self: center;
+	align-self: start;
+	text-align: center;
+}
+
+.header__theme-menu-list {
+	display: flex;
+	gap: 11px;
+}
+
+.header__theme-menu-button {
+	padding: 3px 12px;
+	background: none;
+	border: 1px solid transparent;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 18px;
+	color: var(--additional-color);
+	text-transform: lowercase;
+	cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+	border: 1px solid var(--additional-color);
+	pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+	border: 1px solid var(--border-button-color);
+}
+
+.header__theme-menu-button:focus {
+	outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
+	outline: 0;
+	border-bottom: 1px solid var(--additional-color);
+}
+
+.header__text-container {
+	margin-right: 20px;
+	justify-self: end;
+}
+
+.header__text {
+	background-color: var(--accent-color);
+	max-width: 491px;
+	width: 100%;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 23.4px;
+	color: var(--tertiary-title-color);
+}
+
+.content {
+	padding: 0 20px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 23.4px;
+	color: var(--text-color);
+}
+
+.content-list {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+}
+
+.content-list__text {
+	margin-top: 10px;
+}
+
+.why {
+	margin-top: 60px;
+}
+
+.what .content-list {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.how__content-title {
+	margin-bottom: 20px;
+}
+
+.how .content-list__title {
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.gallery {
+	padding-bottom: 60px;
+}
+
+.gallery__list {
+	display: grid;
+	gap: 20px;
+	padding-top: 10px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 260px 315px 206px 206px;
+	grid-auto-flow: dense;
+}
+
+.gallery__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.gallery__list-item-wide {
+	grid-column: span 2;
+}
+
+.gallery__list-item-tall {
+	grid-row: span 2;
+}
+
+.gallery__list-item-ultra-tall {
+	grid-row: span 3;
+}
+
+.gallery__list-item-big {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+.footer {
+	position: relative;
+	height: 100vh;
+	min-height: 668px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer__title {
+	text-shadow: 2px 2px var(--accent-color);
+}
+
+@media (width <= 768px) {
+	.title {
+		font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+		line-height: 99px;
+	}
+
+	.secondary-title {
+		max-width: 235px;
+	}
+
+	.grid-list {
+		grid-template-columns: 236px 1fr;
+	}
+
+	.header {
+		padding-right: 20px;
+	}
+
+	.header__theme-menu {
+		justify-self: end;
+		align-self: center;
+	}
+
+	.header__theme-menu-list {
+		flex-direction: column;
+	}
+
+	.header__text-container {
+		margin: 0;
+	}
+
+	.header__text {
+		max-width: 365px;
+	}
+
+	.what .content-list {
+		grid-template-columns: 1fr;
+	}
+
+	.gallery__list {
+		grid-template-rows: 192px 230px 159px 139px;
+	}
+}
+@media (width <= 700px) {
+	.title {
+		line-height: 95.7px;
+	}
+
+	.secondary-title {
+		max-width: 350px;
+	}
+
+	.grid-list {
+		gap: 0;
+		grid-template-columns: 1fr;
+	}
+
+	.decorated-zone::before {
+		top: 10px;
+		right: 10px;
+	}
+
+	.decorated-zone::after {
+		bottom: 10px;
+		left: 10px;
+	}
+
+	.rec {
+		top: 10px;
+		right: 19px;
+	}
+
+	.header {
+		padding: 10px;
+	}
+
+	.header__text {
+		width: 100%;
+	}
+
+	.content {
+		padding: 0 10px;
+	}
+
+	.why {
+		margin-top: 40px;
+	}
+
+	.gallery {
+		padding-bottom: 40px;
+	}
+
+	.gallery__list {
+		padding: 0;
+		display: grid;
+		gap: 0;
+		row-gap: 10px;
+		grid-template-columns: 1fr;
+		grid-template-rows: 142px 355px 237px 355px 237px;
+	}
+
+	.gallery__list-item-wide,
+	.gallery__list-item-tall,
+	.gallery__list-item-ultra-tall,
+	.gallery__list-item-big {
+		grid-column: unset;
+		grid-row: unset;
+	}
 }
